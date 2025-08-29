@@ -1,0 +1,24 @@
+/*입력한 배열의 합을 구하는 프로그램을 작성하시오.
+ - 입력 : 4 9 3 50 => 문자열로 입력됨
+ - 출력 : 64*/
+
+import java.util.Scanner;
+
+public class test1 {
+
+	public static void main(String[] args) {
+		System.out.println("스페이스로 구분하여 숫자들을 입력하시오");
+		Scanner scan = new Scanner(System.in);
+		String input = scan.nextLine();
+		String[] split = input.split("");
+		int result = 0;
+		for(int i = 0; i < split.length; i++) {
+			String output = split[i];
+			System.out.println(output);
+			result += Integer.parseInt(output);
+		}
+		System.out.println(result);
+
+	}
+
+}
