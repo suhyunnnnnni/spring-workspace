@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper-emp">
+	<select id="getEmpListByDeptId" parameterType="int" resultType="myspring.Emp">
+		select last_name lastName
+				, first_name firstName
+				, employee_id id
+				, salary salary
+			from employees
+			where department_id = #{deptId}
+	</select>
+	<select id="findEmpByYear" parameterType="int" resultType="myspring.Emp">
+		select employee_id empId,
+				 department_id deptId, 
+				 first_name firstName, 
+				 last_name lastName, 
+				 DATE_FORMAT(hire_date, '%Y-%m-%d') hireDate,
+				 email email,
+				 salary salary
+			from employees
+			where year(hire_date) = #{year(hireDate)}
+	</select>
+	<select id="getEmpByFirstNLastName" parameterType="myspring.Emp" resultType="myspring.Emp">
+		select first_name firstName, 
+				 last_name lastName, 
+				 employee_id employeeId,
+				 salary salary
+			from employees
+			where 1=1
+			<choose>
+				<when test="firstName !=null">AND first_name = #{firstName}</when>
+				<when test="lastName !=null">AND last_name = #{lastName}</when>
+			</choose>
+	</select>
+</mapper>

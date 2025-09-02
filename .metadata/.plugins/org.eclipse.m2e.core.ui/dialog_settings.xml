@@ -75,6 +75,7 @@
 		<list key="name">
 		</list>
 		<list key="artifactId">
+			<item value="myspringpjt"/>
 			<item value="mybatis"/>
 		</list>
 		<list key="version">
