@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" errorPage="addrbook_error.jsp" import="java.util.*,ab.*"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    pageEncoding="UTF-8" errorPage="addrbook_error.jsp" import="java.util.*,lx.edu.springmvc.*"%>
+<%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <!DOCTYPE HTML>
 <html>
 <head>
-<link rel="stylesheet" href="addrbook.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/addrbook.css" type="text/css" media="screen" />
 <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 
 <script type="text/javascript">
@@ -21,22 +21,23 @@
 </head>
 <%-- 
 --%>
-<jsp:useBean id="data" scope="request" type="java.util.List<ab.AddrBookVO>" />
+<jsp:useBean id="data" scope="request" type="java.util.List<lx.edu.springmvc.AddrBookVO>" />
 
 <body>
 <div align="center"> 
 <H2>주소록:목록화면</H2>
 <HR>
 <form>
-<a href="form.do">주소록 등록</a><P>
+<a href="addrbook_form.do">주소록 등록</a><P>
 
 		<table border="1">
-			<tr><th>번호</th><th>이 름</th><th>전화번호</th><th>생 일</th><th>회 사</th><th>메 모</th></tr>
+			<tr><th>번호</th><th>이 름</th><th>이메일<th>전화번호</th><th>생 일</th><th>회 사</th><th>메 모</th></tr>
 			
 			<c:forEach items="${data}" var="vo">
 				<tr>
 				   	<td><a href="javascript:check(${vo.abId})">${vo.abId}</a></td>
 					<td>${vo.abName}</td>
+					<td>${vo.abEmail}</td>
 					<td>${vo.abTel}</td>
 					<td>${vo.abBirth}</td>
 					<td>${vo.abComdept}</td>
