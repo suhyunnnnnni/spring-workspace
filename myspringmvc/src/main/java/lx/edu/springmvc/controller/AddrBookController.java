@@ -10,22 +10,24 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.mysql.cj.Session;
+
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 import lx.edu.springmvc.dao.AddrBookDAO;
+import lx.edu.springmvc.dao.RequestLogDAO;
 import lx.edu.springmvc.vo.AddrBookVO;
+import lx.edu.springmvc.vo.RequestLogVO;
 
 @Controller
 public class AddrBookController {
-
-    private final HelloController helloController;
 	
 	@Autowired
 	AddrBookDAO dao;
-
-    AddrBookController(HelloController helloController) {
-        this.helloController = helloController;
-    }
 	
+
+
+   
 	@RequestMapping("/addrbook_form.do")
 	public String form() {
 		return "addrbook_form"; //jsp file name
@@ -40,7 +42,7 @@ public class AddrBookController {
 //	}
 	
 	@RequestMapping("addrbook_list.do")
-	public ModelAndView list() throws Exception {
+	public ModelAndView list(HttpSession session) throws Exception {
 		ModelAndView result = new ModelAndView();
 		List<AddrBookVO> list = dao.getDBList();
 		result.addObject("data", list);
