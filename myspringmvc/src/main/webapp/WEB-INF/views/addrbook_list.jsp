@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" errorPage="addrbook_error.jsp" import="java.util.*,lx.edu.springmvc.*"%>
+    pageEncoding="UTF-8" errorPage="addrbook_error.jsp" import="java.util.*,lx.edu.springmvc.vo.*"%>
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <!DOCTYPE HTML>
 <html>
@@ -10,7 +10,7 @@
 <script type="text/javascript">
 	function check(ab_id) {
 		//pwd = prompt('수정/삭제 하려면 비밀번호를 넣으세요');
-		document.location.href="edit.do?ab_id="+ab_id;
+		document.location.href="edit.do?abId="+ ab_id;
 		//document.location.href="editview.do?ab_id="+ab_id+"&upasswd="+pwd;
 	}
 </script>
@@ -21,7 +21,7 @@
 </head>
 <%-- 
 --%>
-<jsp:useBean id="data" scope="request" type="java.util.List<lx.edu.springmvc.AddrBookVO>" />
+<jsp:useBean id="data" scope="request" type="java.util.List<lx.edu.springmvc.vo.AddrBookVO>" />
 
 <body>
 <div align="center"> 
@@ -47,13 +47,15 @@
 		</table>
 </form>
 </div>
+<!-- 
 <script type="text/javascript">
 	$('tr').on('click', function(){
 		//ab_id
 		let abId = ($(this).find('a').text());
-		document.location.href="edit.do?ab_id=" + abId;
+		document.location.href="edit.do?abId=" + abId;
 	});
 
 </script>
+ -->
 </body>
 </html>

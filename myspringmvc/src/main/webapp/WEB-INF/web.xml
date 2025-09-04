@@ -6,7 +6,7 @@
 	<display-name>myspringmvc</display-name>
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
-		<param-value>/WEB-INF/context/spring-context.xml</param-value>
+		<param-value>classpath:spring-context.xml</param-value>
 	</context-param>
 	<listener>
 		 <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
@@ -18,7 +18,7 @@
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
 		<init-param>
 			<param-name>contextConfigLocation</param-name>
-			<param-value>/WEB-INF/context/servlet-context.xml</param-value>
+			<param-value>classpath:servlet-context.xml</param-value>
 		</init-param>
 	</servlet>
 	<!-- client 요청은 모두 myservlet이 받음 -->
