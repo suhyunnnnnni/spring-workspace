@@ -23,5 +23,5 @@
     <beans:property name="suffix" value=".jsp" />
   </beans:bean>
 
-<context:component-scan base-package="lx.edu.springmvc" />
+<context:component-scan base-package="lx.edu.springmvc" /> 
 </beans:beans>

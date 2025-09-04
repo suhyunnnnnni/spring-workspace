@@ -33,22 +33,25 @@ public class AddrBookController {
 		return "addrbook_form"; //jsp file name
 	}
 	
-//	@RequestMapping("addrbook_list.do")
-//	public String list(HttpServletRequest req) throws Exception {
-//		List<AddrBookVO> list = dao.getDBList();
-//		// list를 request에 넣는다 
-//		req.setAttribute("data", list);
-//		return "addrbook_list";
-//	}
-	
 	@RequestMapping("addrbook_list.do")
-	public ModelAndView list(HttpSession session) throws Exception {
-		ModelAndView result = new ModelAndView();
+	public String list(HttpServletRequest req, HttpSession session) throws Exception {
+//		if(session.getAttribute("userId") == null) {
+//			return "login";
+//		}
 		List<AddrBookVO> list = dao.getDBList();
-		result.addObject("data", list);
-		result.setViewName("addrbook_list");
-		return result;
+		// list를 request에 넣는다 
+		req.setAttribute("data", list);
+		return "addrbook_list";
 	}
+	
+//	@RequestMapping("addrbook_list.do")
+//	public ModelAndView list(HttpSession session) throws Exception {
+//		ModelAndView result = new ModelAndView();
+//		List<AddrBookVO> list = dao.getDBList();
+//		result.addObject("data", list);
+//		result.setViewName("addrbook_list");
+//		return result;
+//	}
 	
 	@RequestMapping("/insert.do")
 	public String insert(AddrBookVO vo) throws Exception {
