@@ -39,8 +39,8 @@ public class AddrBookDAO {
 	public AddrBookVO getDB(int abId) throws Exception {
 		return session.selectOne("getDB", abId);
 	}
-	public int updateDB(AddrBookVO vo) throws Exception {
-		return session.update("updateDB", vo);
+	public int updateDB(AddrBookVO ab) throws Exception {
+		return session.update("updateDB", ab);
 	}
 	public boolean deleteDB(int abId) throws Exception {
 		System.out.println("deleteDB 함수 호출" + abId);
